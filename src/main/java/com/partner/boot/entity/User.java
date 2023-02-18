@@ -25,65 +25,71 @@ import com.partner.boot.common.LDTConfig;
 * @author 啊啊啊啊不吵吵
 * @since 2023-01-12
 */
-    @Getter
-    @Setter
-    @TableName("sys_user")
+@Getter
+@Setter
+@TableName("sys_user")
 @ApiModel(value = "User对象", description = "")
-    public class User implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-            @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-            // 用户名
-            @ApiModelProperty("用户名")
-            @Alias("用户名")
+    // 用户名
+    @ApiModelProperty("用户名")
+    @Alias("用户名")
     private String username;
 
-            // 密码
-            @ApiModelProperty("密码")
-            @Alias("密码")
+    // 密码
+    @ApiModelProperty("密码")
+    @Alias("密码")
     private String password;
 
-            // 昵称
-            @ApiModelProperty("昵称")
-            @Alias("昵称")
+    // 昵称
+    @ApiModelProperty("昵称")
+    @Alias("昵称")
     private String name;
 
-            // 邮箱
-            @ApiModelProperty("邮箱")
-            @Alias("邮箱")
+    // 邮箱
+    @ApiModelProperty("邮箱")
+    @Alias("邮箱")
     private String email;
 
-            // 地址
-            @ApiModelProperty("地址")
-            @Alias("地址")
+    @ApiModelProperty("地址")
+    @Alias("地址")
     private String address;
 
-            // 用户唯一id
-            @ApiModelProperty("用户唯一id")
-            @Alias("用户唯一id")
+    // 用户唯一id
+    @ApiModelProperty("用户唯一id")
+    @Alias("用户唯一id")
     private String uid;
 
-            // 逻辑删除 0存在  id删除
-            @ApiModelProperty("逻辑删除 0存在  id删除")
-            @Alias("逻辑删除 0存在  id删除")
-        @TableLogic(value = "0", delval = "id")
+    @ApiModelProperty("头像")
+    @Alias("头像")
+    private String avatar;
+
+    // 逻辑删除 0存在  id删除
+    @ApiModelProperty("逻辑删除 0存在  id删除")
+    @Alias("逻辑删除 0存在  id删除")
+    @TableLogic(value = "0", delval = "id")
     private Integer deleted;
 
-            @TableField(fill = FieldFill.INSERT)
-            @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
-            @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
+    @TableField(fill = FieldFill.INSERT)
+    @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
+    @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
     private LocalDateTime createTime;
 
-            @TableField(fill = FieldFill.INSERT_UPDATE)
-            @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
-            @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
+    @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
     private LocalDateTime updateTime;
 
-            // 头像
-            @ApiModelProperty("头像")
-            @Alias("头像")
-    private String avatar;
+    @ApiModelProperty("角色")
+    @Alias("角色")
+    private String role;
+
+    @ApiModelProperty("个性签名")
+    @Alias("个性签名")
+    private String sign;
 }
